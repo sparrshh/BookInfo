@@ -3,6 +3,7 @@ const app = express();
 const Book = require('./models/Book')
 const mongoose = require('mongoose')
 const bookRoutes = require('./routes/bookRoutes');
+const port =  process.env.PORT || 3000
 
 app.use(express.json());
 require('dotenv').config();
@@ -22,6 +23,6 @@ mongoose.connect(
   
 app.use('/api', bookRoutes); 
 
-app.listen(3000, () => {
-  console.log('Server listening at port 3000');
+app.listen(port, () => {
+  console.log(`Server listening at port ${port}`);
 });
